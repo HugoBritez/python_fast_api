@@ -21,7 +21,7 @@ jobs:
 
       # Ejecutar pruebas
       - name: Run tests
-        run: pytest tests/test.py
+        run: pytest test/test.py
 
   build-and-push:
     needs: ci
