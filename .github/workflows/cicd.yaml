@@ -61,11 +61,13 @@ jobs:
           script: |
             echo "Conexión exitosa"
             sleep 5
+            # Detener cualquier proceso que esté usando el puerto 80
             sudo fuser -k 80/tcp
-            API=$(sudo docker ps -q -f name=edteam-fastapi-demo)
+            # Forzar la eliminación del contenedor existente
+            API=$(sudo docker ps -aq -f name=edteam-fastapi-demo)
             if [ ! -z "$API" ]; then
               sudo docker stop $API
-              sudo docker rm $API
+              sudo docker rm -f $API
             fi
             echo "Descargando imagen"
             sudo docker pull sebaskrieg/edteam-fastapi-demo:latest
