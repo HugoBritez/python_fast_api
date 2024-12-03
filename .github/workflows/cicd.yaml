@@ -61,6 +61,7 @@ jobs:
           script: |
             echo "Conexión exitosa"
             sleep 5
+            sudo fuser -k 80/tcp
             API=$(sudo docker ps -q -f name=edteam-fastapi-demo)
             if [ ! -z "$API" ]; then
               sudo docker stop $API
