@@ -70,4 +70,4 @@ jobs:
             echo "Descargando imagen"
             sudo docker pull sebaskrieg/edteam-fastapi-demo:latest
             sudo docker run -d -p 8080:8080 --name edteam-fastapi-demo sebaskrieg/edteam-fastapi-demo:latest
-            echo "Aplicación desplegada"
+            echo "Aplicación corriendo"
